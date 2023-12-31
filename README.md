@@ -6,3 +6,4 @@ $ docker-compose run --rm connexion python3 manage.py migrate
 $ docker-compose run --rm connexion python3 manage.py createsuperuser
 $ docker-compose up
 $ docker-compose run --rm connexion python3 manage.py makemigrations
+### 
