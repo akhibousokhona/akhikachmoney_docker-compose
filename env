@@ -1,0 +1,9 @@
+DJANGO_SECRET_KEY=django-insecure-m@5$k(-gq!4x_l+#hcww_)45doebe&8cd=o_qu$q2w@4)592c8
+DEBUG=True
+DJANGO_ALLOWED_HOSTS=["*"]
+DATABASE_ENGINE=postgresql_psycopg2
+DATABASE_NAME=connexion
+DATABASE_USERNAME=connexion
+DATABASE_PASSWORD=passer
+DATABASE_HOST=127.0.0.1
+DATABASE_PORT=5432
