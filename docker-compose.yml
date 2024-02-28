@@ -1,28 +1,23 @@
-version: "3"
+version: "3.8"
 
 services:
   connexion:
     build:
       context: .
     ports:
-      - "3003:3003"
+      - "3000:3000"
     volumes:
       - ./connexion:/connexion
     command: >
-      sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:3003"
-    environment:
-      - DB_HOST=db
-      - DB_NAME=mydb-dev
-      - DB_USER=vinhle
-      - DB_PASS=password
+      sh -c "python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:3000"
     depends_on:
       - db
   db:
     image: postgres:13-alpine
     environment:
-      - POSTGRES_DB=mydb-dev
-      - POSTGRES_USER=vinhle
-      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=akhikachmoney
+      - POSTGRES_USER=moussa
+      - POSTGRES_PASSWORD=passer
     ports:
       - "5432:5432"
     volumes:
