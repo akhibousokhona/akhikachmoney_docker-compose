@@ -20,11 +20,3 @@ RUN apk del .tmp-build-deps
 RUN mkdir /connexion
 WORKDIR /connexion
 COPY ./connexion /connexion
-
-# [Security] Limit the scope of user who run the docker image
-#RUN adduser -D user
-
-#USER user
-#EXPOSE 8000
-
-#CMD ["gunicorn", "--bind", ":8000", "--workers", "3", "connexion.wsgi"]
