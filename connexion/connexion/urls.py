@@ -22,7 +22,7 @@ from django.urls import include, re_path
 from django.conf.urls.static import static
 
 urlpatterns = [
-    re_path('', views.log_in,name='log_in'),
-    re_path('utilisateurs/', include(('utilisateurs.urls','utilisateurs'), namespace='utilisateurs')),
-    #re_path('admin/', admin.site.urls),
+    path('', views.log_in,name='log_in'),
+    path('utilisateurs/', include(('utilisateurs.urls','utilisateurs'), namespace='utilisateurs')),
+    path('admin/', admin.site.urls),
 ]
