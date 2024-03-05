@@ -11,4 +11,7 @@ $ docker-compose run --rm connexion python3 manage.py migrate
 $ docker-compose run --rm connexion python3 manage.py makemigrations
 ################################## creer un super utilisateur #############
 $ docker-compose run --rm connexion python3 manage.py createsuperuser
+###################### connecter au terminal du conteneur ##################
+sudo docker ps
+sudo docker exec -it 8283faff487c sh
 
