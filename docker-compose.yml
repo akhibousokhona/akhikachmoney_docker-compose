@@ -9,7 +9,12 @@ services:
     volumes:
       - ./connexion:/connexion
     command: >
-      sh -c "python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:3000"
+      sh -c "python3 manage.py makemigrations && python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:3000"
+    environment:    
+      - DB_HOST=db
+      - DB_NAME=akhikachmoney
+      - DB_USER=moussa
+      - DB_PASS=passer
     depends_on:
       - db
   db:
