@@ -20,3 +20,5 @@ RUN apk del .tmp-build-deps
 RUN mkdir /connexion
 WORKDIR /connexion
 COPY ./connexion /connexion
+EXPOSE 8000
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

@@ -13,12 +13,20 @@ import os
 import json
 import logging.config
 from pathlib import Path
-
+import environ
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 #BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # -*- coding: utf-8 -*-
 
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
+# reading .env file
+environ.Env.read_env()
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
@@ -86,14 +94,20 @@ WSGI_APPLICATION = 'connexion.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'HOST': os.environ.get('DB_HOST'),
-        'NAME': os.environ.get('DB_NAME'),
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASS'),
+        'NAME': os.environ.get('POSTGRES_BD','akhikachmoney'),
+        'USER': os.environ.get('POSTGRES_USER','moussa'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD','passer'),
+        'HOST': os.environ.get('POSTGRES_SERVICE_HOST','db'),
+        'PORT': os.environ.get('POSTGRES_SERVICE_PORT',5432),
     }
 }
 ###########
+#DATABASES = {
+    # read os.environ['DATABASE_URL'] and raises
+    # ImproperlyConfigured exception if not found
+#    'default': env.db(),
 
+#}
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
